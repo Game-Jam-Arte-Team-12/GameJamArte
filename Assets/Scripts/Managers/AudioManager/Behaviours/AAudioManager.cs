@@ -4,6 +4,26 @@ using UnityEngine;
 
 namespace Plugins.AudioManagerTool
 {
+
+        /*
+
+            Note : Every word bewteen brackets ([like this]) is an implemented and usefull class
+            [AAudioManager] is the root class for every futur AudioManager.
+            It stores a list of [SoundDataLibrary]. A [SoundDataLibrary] is like a library for Audioclips.
+            Each AudioCLip is stored inside a [SoundData], identified by an ID (string), along with other parameters.
+
+            [SoundSource] is a custom class used to play a [SoundData]. [AAudioManager]'s role is to Play/Stop/FadeIn/FadeOut a SoundData.
+            It can also Mute/Unmute [SoundSource] of the same type.
+
+            Important note : 
+
+         */
+
+
+
+
+
+
 	/// <summary>
 	/// Base behaviour class for every AudioManager
 	/// </summary>
