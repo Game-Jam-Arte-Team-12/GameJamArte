@@ -230,14 +230,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565624650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb732aaab4fe124eb66cd293025e457, type: 3}
+  m_Script: {fileID: 11500000, guid: 3929fcc28dfc3c04ca410dbdcc91b23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundSourceContainer: {fileID: 1565624652}
-  m_soundDataLibraries:
-  - {fileID: 11400000, guid: 40ab5a3ed8d3ad14e9d0b4a978eac650, type: 2}
-  m_fadeInBaseDuration: 2
-  m_fadeOutBaseDuration: 2
   m_soundIDToTest: LoopMusic
 --- !u!4 &1565624652
 Transform:
@@ -298,9 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bb0df4b9f9e5d499f8df92329d54e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ID: SoundSource_Music
-  m_type: 1
-  m_status: 0
 --- !u!82 &1925784732
 AudioSource:
   m_ObjectHideFlags: 0

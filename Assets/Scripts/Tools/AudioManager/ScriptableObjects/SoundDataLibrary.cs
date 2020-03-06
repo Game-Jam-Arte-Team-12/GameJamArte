@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-namespace Plugins.AudioManagerTool
+namespace Plugins.SoundManagerTool
 {
 
 	/// <summary>

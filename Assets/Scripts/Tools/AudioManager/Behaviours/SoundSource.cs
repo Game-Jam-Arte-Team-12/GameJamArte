@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Plugins.AudioManagerTool
+namespace Plugins.SoundManagerTool
 {
 	/// <summary>
 	/// Custom behaviour class for Audio Source
@@ -24,8 +24,6 @@ namespace Plugins.AudioManagerTool
 
 		private AudioSource m_audioSource = null;
 		private SoundData m_currentSoundData = null;
-
-		private AAudioManager m_manager = null;
 
 		public string ID { get { return m_ID; } }
 		public AudioSource AudioSource { get { return m_audioSource; } }
@@ -65,6 +63,8 @@ namespace Plugins.AudioManagerTool
 		protected virtual void OnEnable()
 		{
 			m_audioSource = GetComponent<AudioSource>();
+
+			SoundManagerTool.RemoveSoundSource
 		}
 
 		protected virtual void OnDrawGizmos()
@@ -83,14 +83,9 @@ namespace Plugins.AudioManagerTool
 
 		#region Behaviour
 
-		public void Init(AAudioManager manager)
+		protected virtual void Destroy()
 		{
-			m_manager = manager;
-		}
-
-		protected void Destroy()
-		{
-			m_manager.RemoveSoundSource(this);
+			SoundManagerTool.RemoveSoundSource(this);
 			Destroy(gameObject);
 		}
 

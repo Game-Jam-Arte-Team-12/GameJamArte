@@ -2,71 +2,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Plugins.AudioManagerTool
+namespace Plugins.SoundManagerTool
 {
 
-        /*
+	/*
 
-            Note : Every word bewteen brackets ([like this]) is an implemented and usefull class
-            [AAudioManager] is the root class for every futur AudioManager.
-            It stores a list of [SoundDataLibrary]. A [SoundDataLibrary] is like a library for Audioclips.
-            Each AudioCLip is stored inside a [SoundData], identified by an ID (string), along with other parameters.
-
-            [SoundSource] is a custom class used to play a [SoundData]. [AAudioManager]'s role is to Play/Stop/FadeIn/FadeOut a SoundData.
-            It can also Mute/Unmute [SoundSource] of the same type.
-
-            Important note : 
-
-         */
+		Note : Every word bewteen brackets ([like this]) is an implemented and usefull class
 
 
+		[SoundManagerTool] is a static class used to Play/Stop/FadeIn/FadeOut musics and SFX
+		It's coupled with a setting class nammed [SoundManagerToolSettings], which is located in the Resource Folder and stores a collection of [SoundDataLibrary].
+		A [SoundDataLibrary] is like a library for [SoundData].
+		[SoundData] is a custom class to store AudioClip of a specific sound, identified by an ID (string), along with other parameters.
 
+		Basicaly [SoundManagerTool]'s role is to manage [SoundSources], mute or unmute them as you please.
 
+		[SoundSource] is a custom class used to play a [SoundData].
+		It can also Mute/Unmute [SoundSource] of the same type.
+
+		Important note : 
+
+		When you call [SoundManagerTool].PlaySound, the function return the [SoundSource] used to play the sound. You can then use it to alter its behaviour
+
+	 */
 
 
 	/// <summary>
-	/// Base behaviour class for every AudioManager
+	/// Control class
 	/// </summary>
-	public abstract class AAudioManager : MonoBehaviour
+	public static class SoundManagerTool
 	{
 
 		#region Fields
 
 		#region SoundSources
 
-		[Header("SoundSources - Behaviour class for AudioSource")]
+		public static Transform m_soundSourceContainer = null;
 
-		//[Tooltip("Prefab used to dynamicaly create a SoundSource")]
-		//[SerializeField] protected SoundSource m_prefabSoundSource = new SoundSource();
-
-		[Tooltip("Contains all SoundSources in the game")]
-		[SerializeField] protected Transform m_soundSourceContainer = null;
-
-		protected Dictionary<SoundType, List<SoundSource>> m_typeToSoundSources = new Dictionary<SoundType, List<SoundSource>>();
+		private static Dictionary<SoundType, List<SoundSource>> m_typeToSoundSources = new Dictionary<SoundType, List<SoundSource>>();
 
 		#endregion
 
 		#region SoundLibraries
 
-		[Header("SoundDataLibraries - Collection of sounds to play")]
-		[Space(20)]
-		[Tooltip("List of all libraries of music & SFX")]
-		[SerializeField] protected List<SoundDataLibrary> m_soundDataLibraries = null;
+		private static SoundManagerToolSettings m_settings = null;
+
+		private static List<SoundDataLibrary> SoundDataLibraries
+		{
+			get { return m_settings.SoundDataLibraries; }
+		}
 
 		#endregion
 
 		#region Global Settings
 
-		[Header("Global Settings")]
-		[Space(20)]
+		private static float BaseFadeInDuration
+		{
+			get
+			{
+				return m_settings.BaseFadeInDuration;
+			}
+		}
 
-		[Tooltip("Global duration for FadeIn")]
-		[SerializeField] protected float m_fadeInBaseDuration = 2f;
+		private static float BaseFadeOutDuration
+		{
+			get
+			{
+				return m_settings.BaseFadeOutDuration;
+			}
+		}
 
-		[Tooltip("Global duration for FadeOut")]
-		[SerializeField] protected float m_fadeOutBaseDuration = 2f;
-
-		protected Dictionary<SoundType, bool> m_soundTypeToMuteStatus = new Dictionary<SoundType, bool>();
+		public static Dictionary<SoundType, bool> m_soundTypeToMuteStatus = new Dictionary<SoundType, bool>();
 
 		#endregion
 
@@ -74,30 +80,21 @@ namespace Plugins.AudioManagerTool
 
 		#region Methods
 
-		#region MonoBehaviour
-
-		protected virtual void OnEnable()
-		{
-			Init();
-		}
-
-		#endregion
-
 		#region Behaviour
 
 		/// <summary>
 		/// Initialize the AudioManager
 		/// </summary>
-		public virtual void Init()
+		public static void Init(Transform soundSourceContainer)
 		{
+			m_soundSourceContainer = soundSourceContainer;
+
+			m_settings = Resources.Load("SoundManagerTool/SoundManagerToolSettings") as SoundManagerToolSettings;
+			Debug.Log(m_settings == null);
 
 			// Initialize SoundDataLibraries
-			foreach(SoundDataLibrary library in m_soundDataLibraries)
+			foreach(SoundDataLibrary library in SoundDataLibraries)
 				library.Init();
-
-			// Get all SoundSources and sort them by type
-			if(m_soundSourceContainer == null)
-				m_soundSourceContainer = transform;
 
 			SoundSource[] soundSources = m_soundSourceContainer.GetComponentsInChildren<SoundSource>();
 			int length = soundSources.Length;
@@ -128,7 +125,7 @@ namespace Plugins.AudioManagerTool
 		/// </summary>
 		/// <param name="soundDataID"> ID of the sound</param>
 		/// <returns>SoundSource for specific behaviour</returns>
-		public virtual SoundSource PlaySound(string soundDataID)
+		public static SoundSource PlaySound(string soundDataID)
 		{
 			// Check if all libraries has this ID stored
 			SoundData soundData = GetSoundData(soundDataID);
@@ -152,7 +149,7 @@ namespace Plugins.AudioManagerTool
 		/// <param name="soundDataID"> ID of the sound</param>
 		/// <param name="fadeDuration">FadeDuration. Not changing the value means it will use AAudioManager.m_fadeInBaseDuration</param>
 		/// <returns>SoundSource for specific behaviour</returns>
-		public virtual SoundSource PlaySound(string soundDataID, float fadeDuration = -1f)
+		public static SoundSource PlaySound(string soundDataID, float fadeDuration = -1f)
 		{
 			// Check if all libraries has this ID stored
 			SoundData soundData = GetSoundData(soundDataID);
@@ -168,15 +165,14 @@ namespace Plugins.AudioManagerTool
 			source.SetSoundData(soundData);
 
 			if(fadeDuration == -1)
-				fadeDuration = m_fadeInBaseDuration;
+				fadeDuration = BaseFadeInDuration;
 
 			source.FadeIn(fadeDuration, true);
 
 			return source;
 		}
 
-
-		public virtual void StopSound(string soundDataID)
+		public static void StopSound(string soundDataID)
 		{
 			List<SoundSource> playingSources = SoundSourcesPlayingSoundID(soundDataID);
 
@@ -184,9 +180,12 @@ namespace Plugins.AudioManagerTool
 				source.Stop();
 		}
 
-		public virtual void StopSound(string soundDataID, float fadeDuration = -1)
+		public static void StopSound(string soundDataID, float fadeDuration = -1)
 		{
 			List<SoundSource> playingSources = SoundSourcesPlayingSoundID(soundDataID);
+
+			if(fadeDuration == -1)
+				fadeDuration = BaseFadeOutDuration;
 
 			foreach(SoundSource source in playingSources)
 				source.FadeOut(fadeDuration);
@@ -198,7 +197,7 @@ namespace Plugins.AudioManagerTool
 		/// </summary>
 		/// <param name="type"></param>
 		/// <param name="muteOrUnmute"></param>
-		public virtual void MuteUnmuteSoundSources(SoundType type, bool muteOrUnmute)
+		public static void MuteUnmuteSoundSources(SoundType type, bool muteOrUnmute)
 		{
 			List<SoundSource> sources = GetSoundSources(type);
 
@@ -224,11 +223,11 @@ namespace Plugins.AudioManagerTool
 		/// </summary>
 		/// <param name="ID"> ID of the SoundData</param>
 		/// <returns></returns>
-		protected SoundData GetSoundData(string ID)
+		public static SoundData GetSoundData(string ID)
 		{
 			SoundData sound = null;
 
-			foreach(SoundDataLibrary library in m_soundDataLibraries)
+			foreach(SoundDataLibrary library in SoundDataLibraries)
 			{
 				sound = library.SoundDatas.Find(data => data.ID == ID);
 
@@ -252,7 +251,7 @@ namespace Plugins.AudioManagerTool
 		/// <param name="soundSources"></param>
 		/// <param name="type"></param>
 		/// <returns></returns>
-		protected SoundSource GetNonPlayingSoundSource(SoundType type)
+		public static SoundSource GetNonPlayingSoundSource(SoundType type)
 		{
 			// First, we find the list of SoundSources of given type
 			List<SoundSource> soundSources = GetSoundSources(type);
@@ -279,10 +278,9 @@ namespace Plugins.AudioManagerTool
 		/// </summary>
 		/// <param name="type">SoundType of SoundSource</param>
 		/// <returns></returns>
-		protected List<SoundSource> GetSoundSources(SoundType type)
+		public static List<SoundSource> GetSoundSources(SoundType type)
 		{
-
-			// If there is no SoundSource stored of this type, creates a new list, a new SoundSource and store it
+			// If there is no SoundSource stored of this type, creates a new list, store it and a new SoundSource
 			if(!m_typeToSoundSources.ContainsKey(type))
 			{
 				List<SoundSource> soundSources = new List<SoundSource>();
@@ -295,13 +293,12 @@ namespace Plugins.AudioManagerTool
 				return m_typeToSoundSources[type];
 		}
 
-
 		/// <summary>
 		/// Create a new SoundSource and store it
 		/// </summary>
 		/// <param name="type">SoundType of SoundSource</param>
 		/// <returns></returns>
-		protected SoundSource CreateSoundSource(SoundType type)
+		public static SoundSource CreateSoundSource(SoundType type)
 		{
 			// Instantiate & Initialize
 			//SoundSource soundSource = Instantiate(m_prefabSoundSource, Vector3.zero, Quaternion.identity, m_soundSourceContainer);
@@ -319,14 +316,8 @@ namespace Plugins.AudioManagerTool
 			newSource.Type = type;
 			newSource.name = string.Format("{0}_{1}", type.ToString(), GetSoundSources(type).Count);
 			newSource.DestroyOnStop = true;
-			newSource.Init(this);
 
-
-			// Store it
-			if(m_typeToSoundSources.ContainsKey(type))
-				m_typeToSoundSources[type].Add(newSource);
-			else
-				m_typeToSoundSources.Add(type, new List<SoundSource>() { newSource });
+			AddSoundSource(newSource);
 
 			return newSource;
 		}
@@ -335,7 +326,7 @@ namespace Plugins.AudioManagerTool
 		/// Remove a stored SoundSource
 		/// </summary>
 		/// <param name="soundSource">Instance to remove</param>
-		public void RemoveSoundSource(SoundSource soundSource)
+		public static void RemoveSoundSource(SoundSource soundSource)
 		{
 			foreach(KeyValuePair<SoundType, List<SoundSource>> pair in m_typeToSoundSources)
 				if(pair.Value.Contains(soundSource))
@@ -343,11 +334,23 @@ namespace Plugins.AudioManagerTool
 		}
 
 		/// <summary>
+		/// Store a SoundSource according to its type, to mute it maybe
+		/// </summary>
+		/// <param name="soundSource"></param>
+		public static void AddSoundSource(SoundSource soundSource)
+		{
+			if(m_typeToSoundSources.ContainsKey(soundSource.Type))
+				m_typeToSoundSources[soundSource.Type].Add(soundSource);
+			else
+				m_typeToSoundSources.Add(soundSource.Type, new List<SoundSource>() { soundSource });
+		}
+
+		/// <summary>
 		/// Retrieve all SoundSources playing a specific sound, identified by its SoundID
 		/// </summary>
 		/// <param name="soundID">ID of the sound</param>
 		/// <returns></returns>
-		protected List<SoundSource> SoundSourcesPlayingSoundID(string soundID)
+		public static List<SoundSource> SoundSourcesPlayingSoundID(string soundID)
 		{
 			List<SoundSource> sources = new List<SoundSource>();
 
