@@ -90,7 +90,6 @@ namespace Plugins.SoundManagerTool
 			m_soundSourceContainer = soundSourceContainer;
 
 			m_settings = Resources.Load("SoundManagerTool/SoundManagerToolSettings") as SoundManagerToolSettings;
-			Debug.Log(m_settings == null);
 
 			// Initialize SoundDataLibraries
 			foreach(SoundDataLibrary library in SoundDataLibraries)

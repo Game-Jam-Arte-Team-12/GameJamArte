@@ -11,6 +11,12 @@ public enum GameState
     Win
 }
 
+public enum CursorTypes
+{
+    Normal,
+    Interact
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -18,7 +24,14 @@ public class GameManager : MonoBehaviour
     public GameState GameState;
 
     public bool DEV = true;
-    
+
+    public Player Player;
+
+    [SerializeField]
+    private Texture2D _normalCursor;
+    [SerializeField]
+    private Texture2D _interactCursor;
+
     private void Awake()
     {
         if (Instance != null)
@@ -32,6 +45,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeGameState(GameState.MainMenu);
+        ChangeCursor(CursorTypes.Normal);
+        LevelManager.Instance.Init();
+    }
+
+    public void NextLevel()
+    {
+        LevelManager.Instance.NextLevel();
     }
 
     public void Play()
@@ -58,5 +78,21 @@ public class GameManager : MonoBehaviour
     public void ChangeGameState(GameState newState)
     {
         GameState = newState;
+    }
+
+    // Change cursor
+    public void ChangeCursor(CursorTypes type)
+    {
+        Texture2D newTexture = _normalCursor;
+        switch(type)
+        {
+            case CursorTypes.Normal:
+                newTexture = _normalCursor;
+                break;
+            case CursorTypes.Interact:
+                newTexture = _interactCursor;
+                break;
+        }
+        Cursor.SetCursor(newTexture, new Vector2(0, 0), CursorMode.Auto);
     }
 }
