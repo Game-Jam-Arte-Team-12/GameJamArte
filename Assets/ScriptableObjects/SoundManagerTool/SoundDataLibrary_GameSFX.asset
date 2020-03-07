@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ffa630e7c0d1845a00731a014882c4, type: 3}
+  m_Name: SoundDataLibrary_GameSFX
+  m_EditorClassIdentifier: 
+  m_description: Type here to describe the nature of your library
+  m_type: 2
+  m_soundDatas:
+  - m_ID: TestIva
+    m_clip: {fileID: 8300000, guid: 1293bb192c85f14438a9334a7856a60d, type: 3}
+    m_volume: 1

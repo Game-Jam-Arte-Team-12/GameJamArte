@@ -63,7 +63,8 @@ namespace Plugins.SoundManagerTool
 		protected virtual void OnEnable()
 		{
 			m_audioSource = GetComponent<AudioSource>();
-			SoundManagerTool.RemoveSoundSource(this);
+
+			SoundManagerTool.RemoveSoundSource
 		}
 
 		protected virtual void OnDrawGizmos()
