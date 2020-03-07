@@ -9,15 +9,15 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hit;
 
-            if(Physics.Raycast(raycast, out hit, 100, _walkableLayer))
-            {
-                GameManager.Instance.Player.MoveTo(hit.point);
-            }
-        }
+        //    if(Physics.Raycast(raycast, out hit, 100, _walkableLayer))
+        //    {
+        //        //GameManager.Instance.Player.MoveTo(hit.point);
+        //    }
+        //}
     }
 }
