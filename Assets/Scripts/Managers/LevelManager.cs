@@ -10,11 +10,12 @@ public class LevelManager : MonoBehaviour
     public Room ActualRoom;
 
     [SerializeField]
-    private GameObject _roomsParent;
-    [SerializeField]
+    private GameObject _levelDesignPrefab;
+    private GameObject _levelDesign;
+    
     private List<Room> _rooms;
 
-    private int _roomIndex = 0;
+    //private int _roomIndex = 0;
 
     private void Awake()
     {
@@ -26,23 +27,33 @@ public class LevelManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+
+    }
+
     public void Init()
     {
-        SpawnLevel();
+        _rooms = new List<Room>();
+
+        _levelDesign = Instantiate(_levelDesignPrefab, Vector3.zero, Quaternion.identity);
+
+        foreach (Room room in _levelDesign.GetComponentsInChildren<Room>())
+        {
+            _rooms.Add(room);
+        }
+        AccessNewRoom();
     }
 
     public void NextLevel()
     {
-        _roomIndex++;
-        ActualRoom.DetachFloor();
+        _rooms.Remove(ActualRoom);
         Destroy(ActualRoom.gameObject);
-        SpawnLevel();
+        AccessNewRoom();
     }
 
-    private void SpawnLevel()
+    private void AccessNewRoom()
     {
-        if (_roomIndex >= _rooms.Count) _roomIndex = 0;
-        ActualRoom = Instantiate(_rooms[_roomIndex], _roomsParent.transform);
-        ActualRoom.transform.position = Vector3.zero;
+        ActualRoom = _rooms[0];
     }
 }
