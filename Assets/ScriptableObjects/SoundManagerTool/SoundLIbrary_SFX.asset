@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b38cbee8e286a49a34c943220e6626, type: 3}
-  m_Name: SoundManagerToolSettings
+  m_Script: {fileID: 11500000, guid: f25ddaacb8ab924449820c760928a9fa, type: 3}
+  m_Name: SoundLIbrary_SFX
   m_EditorClassIdentifier: 
-  m_baseFadeInDuration: 1
-  m_baseFadeOutDuration: 1
-  m_soundDataLibraries:
-  - {fileID: 11400000, guid: d8f25ba79c2ea1348bdabd71114c99bb, type: 2}
+  m_description: 
+  m_type: 0
+  m_soundDatas: []
