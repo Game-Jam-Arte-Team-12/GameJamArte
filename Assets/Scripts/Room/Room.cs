@@ -9,8 +9,6 @@ public class Room : MonoBehaviour
 {
     [SerializeField]
     private GameObject _wallsFrontParent;
-    [SerializeField]
-    private GameObject _floorExit;
     private RoomTriggerCamera _triggerCam;
     private NavMeshSurface _surface;
 

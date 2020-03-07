@@ -14,13 +14,18 @@ public class Player : MonoBehaviour
     private Vector2 _movementInput;
     private float _speed = 3f;
 
+    [SerializeField]
+    private List<Interactable> _interactables;
+
     // Start is called before the first frame update
     void Start()
     {
+        _interactables = new List<Interactable>();
         _agent = GetComponent<NavMeshAgent>();
         _inputAction = new PlayerControl();
         _inputAction.Enable();
         _inputAction.PlayerControls.Move.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
+        _inputAction.PlayerControls.Interact.performed += ctx => Interact();
     }
     
     void Update()
@@ -42,6 +47,21 @@ public class Player : MonoBehaviour
         _agent.Move(newPos * Time.deltaTime * _speed);
     }
 
+    public void Interact()
+    {
+        if (_interactables.Count <= 0) return;
+        _interactables[0].Interact();
+    }
+
+    public void AddInteractable(Interactable inter)
+    {
+        _interactables.Add(inter);
+    }
+
+    public void RemoveInteractable(Interactable inter)
+    {
+        _interactables.Remove(inter);
+    }
     //private void OnEnable()
     //{
     //    inputAction.Enable();

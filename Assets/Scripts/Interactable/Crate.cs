@@ -18,9 +18,8 @@ public class Crate : Interactable
 
     private void OpenCrate()
     {
-
-        _top.transform.DOMove(_top.transform.position + new Vector3(0, 0, _isOpen ? -.3f : .3f), .2f).SetDelay(_isOpen ? 0.2f : .0f);
-        _top.transform.DORotate(new Vector3(_isOpen ? 0 : 25f, 0, 0), .2f).SetDelay(_isOpen ? 0 : .2f);
+        _top.transform.DOLocalMove(_top.transform.localPosition + new Vector3(0, 0, _isOpen ? .3f : -.3f), .2f).SetDelay(_isOpen ? 0.2f : .0f);
+        _top.transform.DOLocalRotate(new Vector3(_isOpen ? 0 : -25f, 0, 0), .2f).SetDelay(_isOpen ? 0 : .2f);
         _isOpen = !_isOpen;
     }
 }
