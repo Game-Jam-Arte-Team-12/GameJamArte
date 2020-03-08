@@ -19,8 +19,8 @@ public class FallingRockGenerator : MonoBehaviour
         Init();
         if (Follower)
         {
-            _minDelay = 5f;
-            _maxDelay = 7f;
+            _minDelay = 3f;
+            _maxDelay = 5f;
             GameManager.Instance.FollowingFalling = gameObject;
         }
     }
@@ -50,7 +50,8 @@ public class FallingRockGenerator : MonoBehaviour
     void Update()
     {
         if (Follower) {
-            Vector3 playerPosAhead = GameManager.Instance.Player.transform.position + GameManager.Instance.Player.transform.forward.normalized * 2;
+            //Vector3 playerPosAhead = GameManager.Instance.Player.transform.position + GameManager.Instance.Player.transform.forward.normalized * 2;
+            Vector3 playerPosAhead = GameManager.Instance.Player.transform.position;
 
             transform.position = new Vector3(playerPosAhead.x, transform.position.y, playerPosAhead.z);
         }
