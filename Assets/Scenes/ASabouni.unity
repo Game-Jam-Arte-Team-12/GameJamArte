@@ -1891,6 +1891,7 @@ MonoBehaviour:
   Player: {fileID: 505619260}
   _normalCursor: {fileID: 2800000, guid: f35d1a0ce1cdc19419223ff91cc1a091, type: 3}
   _interactCursor: {fileID: 2800000, guid: 4b61a379add7bf14485eef9a87d23775, type: 3}
+  _socle: {fileID: 1426719903}
   FollowingFalling: {fileID: 0}
 --- !u!1 &2025004968
 GameObject:
