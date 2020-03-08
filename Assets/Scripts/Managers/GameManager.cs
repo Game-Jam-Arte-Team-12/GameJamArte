@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Plugins.SoundManagerTool;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
+		SoundManagerTool.PlaySound("MUS_0");
         ChangeGameState(GameState.Game);
         LevelManager.Instance.Init();
     }

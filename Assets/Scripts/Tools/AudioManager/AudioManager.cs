@@ -37,6 +37,8 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] private int indexFadeOut = 1;
 
 
+	public const string MUSIC_MUS_ROOT = "Mus_";
+
 	#endregion
 
 
@@ -68,6 +70,7 @@ public class AudioManager : MonoBehaviour
 
 	private void OnGUI()
 	{
+		return;
 		GUILayout.BeginVertical();
 
 		if(GUILayout.Button("Play Test SFX"))
