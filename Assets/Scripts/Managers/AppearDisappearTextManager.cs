@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using DG.Tweening;
 
 public class AppearDisappearTextManager : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class AppearDisappearTextManager : MonoBehaviour
     private float _rollInSpeed = 0.05f;
     private float _rollOutSpeed = 0.005f;
 
+    private Tween _myTweenText;
+
 
     IEnumerator Start()
     {
         _m_textMeshPro = gameObject.GetComponent<TextMeshPro>() ?? gameObject.AddComponent<TextMeshPro>();
         _m_textMeshPro.maxVisibleCharacters = 0;
+        _m_textMeshPro.SetText("");
         //yield return new WaitForSeconds(0.05f);
         yield return StartCoroutine(RollIn());
     }
@@ -26,7 +30,7 @@ public class AppearDisappearTextManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f); // WAIT FOR THE TEXT TO RENDER
         yield return new WaitForSeconds(waitTime);
-
+        FadeInBlock();
         int totalVisibleCharacters = _m_textMeshPro.textInfo.characterCount;
         Debug.Log(totalVisibleCharacters);
         int counter = 0;
@@ -50,6 +54,28 @@ public class AppearDisappearTextManager : MonoBehaviour
         }
     }
 
+    private void FadeInBlock()
+    {
+        DOVirtual.Float(-1, 0, 2f, (float value) => {
+            // ObjectToDisplayOn
+            //_m_textMeshPro.alpha = value;
+            _m_textMeshPro.fontSharedMaterial.SetFloat("_FaceDilate", value);
+            //transform.position = Vector3.Lerp();
+        });
+
+        _myTweenText = DOVirtual.Float(-0.1f, 0, 0.1f, (float value) => {
+            // ObjectToDisplayOn
+            //_m_textMeshPro.alpha = value;
+            _m_textMeshPro.fontSharedMaterial.SetFloat("_FaceDilate", value);
+            //transform.position = Vector3.Lerp();
+        }).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        //DOVirtual.Float(1, 0, 4f, (float value) => {
+        //    // ObjectToDisplayOn
+        //    _m_textMeshPro.fontSharedMaterial.SetFloat("_OutlineSoftness", value);
+        //    //transform.position = Vector3.Lerp();
+        //});
+    }
+
     public IEnumerator RollOut(float waitTime = 0f)
     {
         yield return new WaitForSeconds(waitTime);
@@ -71,9 +97,9 @@ public class AppearDisappearTextManager : MonoBehaviour
             }
 
             counter -= 1;
-
             yield return new WaitForSeconds(_rollOutSpeed);
         }
+        _myTweenText.Kill();
     }
 
 

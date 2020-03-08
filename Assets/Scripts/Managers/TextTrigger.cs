@@ -18,6 +18,8 @@ public class TextTrigger : MonoBehaviour
     public TextMeshPro ObjectToDisappear;
     public float DelayToDisappear = 0;
 
+    private bool _hasBeenTriggered = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +30,19 @@ public class TextTrigger : MonoBehaviour
     IEnumerator OnTriggerEnter(Collider collision)
     {
         //ObjectToDisplayOn.GetComponent<RollingTextAppear>().RollBack():
-        if (ObjectToDisplayOn != null)
+        if(collision.tag == "Player" && _hasBeenTriggered == false)
         {
-            ObjectToDisplayOn.maxVisibleCharacters = 0;
-            ObjectToDisplayOn.SetText(TextToDisplay);
-            yield return StartCoroutine(ObjectToDisplayOn.GetComponent<AppearDisappearTextManager>().RollIn(DelayToAppear));
-        }
-        if (ObjectToDisappear!=null)
-        {
-            yield return StartCoroutine(ObjectToDisappear.GetComponent<AppearDisappearTextManager>().RollOut(DelayToDisappear));
+            if (ObjectToDisplayOn != null)
+            {
+                ObjectToDisplayOn.maxVisibleCharacters = 0;
+                ObjectToDisplayOn.SetText(TextToDisplay);
+                yield return StartCoroutine(ObjectToDisplayOn.GetComponent<AppearDisappearTextManager>().RollIn(DelayToAppear));
+            }
+            if (ObjectToDisappear!=null)
+            {
+                yield return StartCoroutine(ObjectToDisappear.GetComponent<AppearDisappearTextManager>().RollOut(DelayToDisappear));
+            }
+            _hasBeenTriggered = true;
         }
         //yield return StartCoroutine(ObjectToDisplayOn.GetComponent<RollingTextAppear>().RollBack());
     }

@@ -10,9 +10,9 @@ public class FloatingTextEffect : MonoBehaviour
     private RectTransform _myRectTransform;
     //private Tween _myTweenZ;
     public float FloatXOffSet = 0;
-    public float FloatYOffSet = 0;
+    public float FloatYOffSet = 0; // WAS 0.2f
     //public float FloatZOffSet = 0;
-    public float FloatLoopDuration = 2f;
+    public float FloatLoopDuration = 2f; // WAS 2
     // Start is called before the first frame update
     void Start()
     {
