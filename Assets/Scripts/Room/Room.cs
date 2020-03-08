@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     [SerializeField]
     private GameObject _wallsFrontParent;
     private RoomTriggerCamera _triggerCam;
+
     private NavMeshSurface _surface;
 
     protected virtual void Start()
@@ -17,6 +18,11 @@ public class Room : MonoBehaviour
         _triggerCam = GetComponentInChildren<RoomTriggerCamera>();
         _surface = GetComponentInChildren<NavMeshSurface>();
         _surface.BuildNavMesh();
+    }
+
+    public virtual void StartRoom()
+    {
+
     }
 
     public void EnterRoom(Vector3 camPos)
