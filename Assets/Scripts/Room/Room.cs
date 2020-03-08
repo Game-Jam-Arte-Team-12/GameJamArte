@@ -25,6 +25,11 @@ public class Room : MonoBehaviour
 
     }
 
+    public void RefreshNavMesh()
+    {
+        _surface.BuildNavMesh();
+    }
+
     public void EnterRoom(Vector3 camPos)
     {
         //_wallsFrontParent.transform.DOMoveY(_wallsFrontParent.transform.position.y - 10f, 1f).SetEase(Ease.InOutBack, 1.2f, 0);

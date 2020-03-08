@@ -24,8 +24,8 @@ public class Bridge : MonoBehaviour
 
     public void Repair()
     {
-        StopCoroutine("DelayBeforeRepair");
         _isRepairing = false;
+        BreakAnim();
     }
 
     private IEnumerator DelayBeforeRepair()
@@ -34,7 +34,7 @@ public class Bridge : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
             Repair();
-            yield return null;
+            yield break;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -45,10 +45,21 @@ public class Bridge : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.Instance.Player.RemoveBridge(gameObject);
+        }
+    }
+
     private void BreakAnim()
     {
-        _part1.transform.DOLocalMove(_part1.transform.localPosition + new Vector3(0, 0, _isOpen ? .3f : -.3f), .2f).SetDelay(_isOpen ? 0.2f : .0f);
-        _part1.transform.DOLocalRotate(new Vector3(_isOpen ? 0 : -25f, 0, 0), .2f).SetDelay(_isOpen ? 0 : .2f);
+        //_part1.transform.DOLocalMove(_part1.transform.localPosition + new Vector3(0, 0, _isOpen ? .3f : -.3f), .2f).SetDelay(_isOpen ? 0.2f : .0f);
+        _part1.transform.DOLocalRotate(new Vector3(_isOpen ? 0 : 50f, 0, 0), .2f).SetEase(Ease.InOutBack).OnComplete(()=> {
+            LevelManager.Instance.ActualRoom.RefreshNavMesh();
+        });
+        _part2.transform.DOLocalRotate(new Vector3(_isOpen ? 0 : -50f, 0, 0), .2f).SetEase(Ease.InOutBack);
         _isOpen = !_isOpen;
     }
 }

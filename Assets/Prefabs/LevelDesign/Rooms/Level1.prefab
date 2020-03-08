@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6998274058817328914
 Transform:
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 068fbdc517dc8f44597a2aded135c554, type: 2}
 --- !u!1 &5423727514283809152
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 2a976b69ca2933745a76b3fcf303bdc5, type: 3}
+  - {fileID: 2100000, guid: 801e72835fb81ff43aaaf7ef00a5b116, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -742,7 +742,7 @@ PrefabInstance:
     - target: {fileID: 4327619792069543748, guid: bc7eb5a73674416448848b7385f179ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.7
+      value: 39.3
       objectReference: {fileID: 0}
     - target: {fileID: 4327619792069543748, guid: bc7eb5a73674416448848b7385f179ad,
         type: 3}
@@ -752,7 +752,7 @@ PrefabInstance:
     - target: {fileID: 4327619792069543748, guid: bc7eb5a73674416448848b7385f179ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4327619792069543748, guid: bc7eb5a73674416448848b7385f179ad,
         type: 3}
