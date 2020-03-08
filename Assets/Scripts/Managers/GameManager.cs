@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum GameState
 {
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
     private Texture2D _normalCursor;
     [SerializeField]
     private Texture2D _interactCursor;
+    [SerializeField]
+    private GameObject _socle;
     [HideInInspector]
     public GameObject FollowingFalling;
 
@@ -50,6 +53,8 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.MainMenu);
         ChangeCursor(CursorTypes.Normal);
         // LevelManager.Instance.Init();
+        SoundManagerTool.PlaySound("MUS_0");
+        print("start");
     }
 
     public void NextLevel()
@@ -60,9 +65,32 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
-		SoundManagerTool.PlaySound("MUS_0");
+        //SoundManagerTool.BlendSound(0, 1, 1f);
+        print("bit");
         ChangeGameState(GameState.Game);
-        LevelManager.Instance.Init();
+        _socle.transform.DOMove(
+            new Vector3(
+                _socle.transform.position.x - 2f,
+                _socle.transform.position.y,
+                _socle.transform.position.z
+            ),
+            1f
+        ).OnComplete(() =>
+        {
+            _socle.transform.DOMove(
+                new Vector3(
+                    _socle.transform.position.x,
+                    _socle.transform.position.y + 10f,
+                    _socle.transform.position.z
+                ),
+                1f
+            ).OnComplete(() =>
+            {
+                LevelManager.Instance.Init();
+
+            });
+        });
+        // _socle.SetActive(false);
     }
 
     public void Pause()
