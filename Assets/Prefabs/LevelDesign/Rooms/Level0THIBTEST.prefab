@@ -178,11 +178,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5222647954330700941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.257812, y: 28.911133, z: 147.56226}
+  m_LocalPosition: {x: 44.257812, y: 65, z: 147.56226}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
-  - {fileID: 8322013380330269753}
   - {fileID: 8503858276394152152}
+  - {fileID: 8322013380330269753}
   - {fileID: 4535934929688495166}
   - {fileID: 67921958628737387}
   - {fileID: 6461189011561612711}
@@ -1691,7 +1691,7 @@ PrefabInstance:
     - target: {fileID: 1999197902203014405, guid: 934ad44701b5dd94a92923100ae98a59,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1999197902203014405, guid: 934ad44701b5dd94a92923100ae98a59,
         type: 3}
@@ -1923,6 +1923,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2327818018371177781}
     m_Modifications:
+    - target: {fileID: 1999197902203014404, guid: 934ad44701b5dd94a92923100ae98a59,
+        type: 3}
+      propertyPath: Follower
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1999197902203014405, guid: 934ad44701b5dd94a92923100ae98a59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1961,7 +1966,7 @@ PrefabInstance:
     - target: {fileID: 1999197902203014405, guid: 934ad44701b5dd94a92923100ae98a59,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1999197902203014405, guid: 934ad44701b5dd94a92923100ae98a59,
         type: 3}
@@ -1996,7 +2001,7 @@ PrefabInstance:
     - target: {fileID: 1999197902203014458, guid: 934ad44701b5dd94a92923100ae98a59,
         type: 3}
       propertyPath: m_Name
-      value: FallingRockGenerator (10)
+      value: Following
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 934ad44701b5dd94a92923100ae98a59, type: 3}
