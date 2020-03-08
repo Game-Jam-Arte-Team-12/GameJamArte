@@ -32,7 +32,6 @@ public class FallingRock : MonoBehaviour
 
         _circleRenderer.DOColor(Color.red, 5f);
         _crashPosition = _circle.transform.position;
-        Debug.Log("mix" + _circle.GetComponentInChildren<SpriteRenderer>().name);
     }
 
     private void Crash()

@@ -9,6 +9,7 @@ public class EndRoom : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.Instance.NextLevel();
+            Destroy(gameObject);
         }
     }
 }
