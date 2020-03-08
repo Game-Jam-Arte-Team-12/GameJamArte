@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static PlayerControl;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -14,22 +16,30 @@ public class Player : MonoBehaviour
     private Vector2 _movementInput;
     private float _speed = 3f;
 
-    private Vector3 _startingPosition;
+    public Vector3 StartingPosition;
 
     [SerializeField]
     private List<Interactable> _interactables;
+
+    [SerializeField]
+    private List<GameObject> _bridges;
+
+    [SerializeField]
+    private Image _burst;
 
     // Start is called before the first frame update
     void Start()
     {
         _interactables = new List<Interactable>();
+        _bridges = new List<GameObject>();
         _agent = GetComponent<NavMeshAgent>();
         _inputAction = new PlayerControl();
         _inputAction.Enable();
         _inputAction.PlayerControls.Move.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
         _inputAction.PlayerControls.Interact.performed += ctx => Interact();
-
-        _startingPosition = transform.position;
+        _burst.color = Color.black;
+        _burst.fillAmount = 0;
+        StartingPosition = transform.position;
     }
     
     void Update()
@@ -67,9 +77,58 @@ public class Player : MonoBehaviour
         _interactables.Remove(inter);
     }
 
+    public void AddBridge(GameObject bridge)
+    {
+        _bridges.Add(bridge);
+    }
+
+    public void RemoveBridge(GameObject bridge)
+    {
+        _bridges.Remove(bridge);
+    }
+
     public void Die()
     {
-        transform.position = _startingPosition;
+        transform.position = StartingPosition;
+    }
+
+    public void Room2()
+    {
+        StartingPosition = transform.position;
+        StartCoroutine("FillAmount");
+    }
+
+    private void Burst()
+    {
+        _burst.color = Color.red;
+
+        if (_bridges.Count >0)
+        {
+
+            foreach (GameObject bridge in _bridges)
+            {
+                Destroy(bridge);
+            }
+            _bridges.Clear();
+        }
+    }
+
+    private IEnumerator FillAmount()
+    {
+        while (true)
+        {
+
+            _burst.DOFillAmount(100, 1.8f).OnComplete(()=> {
+                Burst();
+            }).SetEase(Ease.Linear);
+
+            yield return new WaitForSeconds(3f);
+            _burst.DOFillAmount(0, 1.5f);
+            _burst.DOColor(Color.black, 1.5f);
+            yield return new WaitForSeconds(3f);
+
+            yield return null;
+        }
     }
     //private void OnEnable()
     //{

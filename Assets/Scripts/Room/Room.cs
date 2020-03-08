@@ -27,13 +27,13 @@ public class Room : MonoBehaviour
 
     public void EnterRoom(Vector3 camPos)
     {
-        _wallsFrontParent.transform.DOMoveY(_wallsFrontParent.transform.position.y - 10f, 1f).SetEase(Ease.InOutBack, 1.2f, 0);
+        //_wallsFrontParent.transform.DOMoveY(_wallsFrontParent.transform.position.y - 10f, 1f).SetEase(Ease.InOutBack, 1.2f, 0);
         Camera.main.GetComponent<CustomCamera>().GoToRoomSpot(camPos);
     }
 
     public void ExitRoom()
     {
-        _wallsFrontParent.transform.DOMoveY(_wallsFrontParent.transform.position.y + 10f, .5f);
+        //_wallsFrontParent.transform.DOMoveY(_wallsFrontParent.transform.position.y + 10f, .5f);
         Camera.main.GetComponent<CustomCamera>().FollowPlayer();
     }
 }

@@ -34,6 +34,6 @@ public class RoomTriggerCamera : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = GizColor;
-        Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().size);
+        //Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().size);
     }
 }
