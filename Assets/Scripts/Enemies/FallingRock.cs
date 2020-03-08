@@ -31,13 +31,16 @@ public class FallingRock : MonoBehaviour
         _circleRenderer.color = Color.black;
 
         _circleRenderer.DOColor(Color.red, 5f);
+        _crashPosition = _circle.transform.position;
         Debug.Log("mix" + _circle.GetComponentInChildren<SpriteRenderer>().name);
     }
 
     private void Crash()
     {
         //Destroy(_circle);
+        _circle.transform.SetParent(transform.parent);
         transform.DOMoveY(_crashPosition.y, 1f).SetEase(Ease.Linear).OnComplete(()=> {
+            Destroy(_circle);
             Destroy(gameObject);
         });
     }

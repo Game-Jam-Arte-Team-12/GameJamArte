@@ -21,6 +21,7 @@ public class FallingRockGenerator : MonoBehaviour
         {
             _minDelay = 5f;
             _maxDelay = 7f;
+            GameManager.Instance.FollowingFalling = gameObject;
         }
     }
 

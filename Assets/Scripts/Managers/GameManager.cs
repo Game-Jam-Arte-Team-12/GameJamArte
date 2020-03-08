@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Texture2D _interactCursor;
 
+    [HideInInspector]
+    public GameObject FollowingFalling;
+
     private void Awake()
     {
         if (Instance != null)
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         LevelManager.Instance.NextLevel();
+        if(FollowingFalling != null) Destroy(FollowingFalling);
     }
 
     public void Play()
