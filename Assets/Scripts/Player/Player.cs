@@ -104,12 +104,10 @@ public class Player : MonoBehaviour
 
         if (_bridges.Count >0)
         {
-
             foreach (GameObject bridge in _bridges)
             {
-                Destroy(bridge);
+                bridge.GetComponent<Bridge>().Break();
             }
-            _bridges.Clear();
         }
     }
 
