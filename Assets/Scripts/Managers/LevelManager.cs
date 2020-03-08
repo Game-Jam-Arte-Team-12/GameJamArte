@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
 
-	[SerializeField] private int m_currentRoomIndex = 0;
+    [SerializeField] private int m_currentRoomIndex = 0;
     [HideInInspector]
     public Room ActualRoom;
 
@@ -55,17 +55,18 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-		m_currentRoomIndex++;
+        m_currentRoomIndex++;
 
 
-		_rooms.Remove(ActualRoom);
+        _rooms.Remove(ActualRoom);
         Destroy(ActualRoom.gameObject);
         AccessNewRoom();
     }
 
     private void AccessNewRoom()
     {
-		SoundManagerTool.BlendSound(m_currentRoomIndex - 1, m_currentRoomIndex, 1f);
+        print("access");
+        SoundManagerTool.BlendSound(m_currentRoomIndex - 1, m_currentRoomIndex, 1f);
         ActualRoom = _rooms[0];
     }
 }
