@@ -102,6 +102,8 @@ public class Player : MonoBehaviour
 
     public void Room2()
     {
+        print("ici1");
+
         StartingPosition = transform.position;
         StartCoroutine("FillAmount");
     }
@@ -109,6 +111,7 @@ public class Player : MonoBehaviour
     private void Burst()
     {
         _burst.color = Color.red;
+        print("burst");
 
         if (_bridges.Count >0)
         {
@@ -123,7 +126,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-
+            print("ici");
             _burst.DOFillAmount(100, 1.8f).OnComplete(()=> {
                 Burst();
             }).SetEase(Ease.Linear);

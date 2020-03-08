@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Plugins.SoundManagerTool;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
+		SoundManagerTool.PlaySound("MUS_0");
         ChangeGameState(GameState.Game);
         LevelManager.Instance.Init();
     }
@@ -87,16 +89,16 @@ public class GameManager : MonoBehaviour
     // Change cursor
     public void ChangeCursor(CursorTypes type)
     {
-        Texture2D newTexture = _normalCursor;
-        switch (type)
-        {
-            case CursorTypes.Normal:
-                newTexture = _normalCursor;
-                break;
-            case CursorTypes.Interact:
-                newTexture = _interactCursor;
-                break;
-        }
-        Cursor.SetCursor(newTexture, new Vector2(0, 0), CursorMode.Auto);
+        //Texture2D newTexture = _normalCursor;
+        //switch (type)
+        //{
+        //    case CursorTypes.Normal:
+        //        newTexture = _normalCursor;
+        //        break;
+        //    case CursorTypes.Interact:
+        //        newTexture = _interactCursor;
+        //        break;
+        //}
+        //Cursor.SetCursor(newTexture, new Vector2(0, 0), CursorMode.Auto);
     }
 }
