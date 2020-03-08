@@ -128,6 +128,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 401595074, guid: 5334a7bfff5c076449db25b1d9cd007f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 401595074, guid: 5334a7bfff5c076449db25b1d9cd007f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 401595074, guid: 5334a7bfff5c076449db25b1d9cd007f, type: 3}
+      propertyPath: m_padding
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5172541371483946686, guid: 5334a7bfff5c076449db25b1d9cd007f,
         type: 3}
       propertyPath: m_textInfo.characterCount

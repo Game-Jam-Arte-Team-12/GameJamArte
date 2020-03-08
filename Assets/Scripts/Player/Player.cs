@@ -122,6 +122,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void StopBurst()
+    {
+        StopCoroutine("FillAmount");
+        _burst.color = Color.black;
+        _burst.fillAmount = 0;
+    }
+
     private IEnumerator FillAmount()
     {
         while (true)

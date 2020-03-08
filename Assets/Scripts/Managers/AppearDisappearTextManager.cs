@@ -36,7 +36,6 @@ public class AppearDisappearTextManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         FadeInBlock();
         int totalVisibleCharacters = _m_textMeshPro.textInfo.characterCount;
-        Debug.Log(totalVisibleCharacters);
         int counter = 0;
         _displayDone = false;
 

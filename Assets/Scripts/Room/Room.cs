@@ -11,6 +11,8 @@ public class Room : MonoBehaviour
     private GameObject _wallsFrontParent;
     private RoomTriggerCamera _triggerCam;
 
+    public bool IfLastRoom;
+
     private NavMeshSurface _surface;
 
     protected virtual void Start()
@@ -22,7 +24,7 @@ public class Room : MonoBehaviour
 
     public virtual void StartRoom()
     {
-
+        if (IfLastRoom) GameManager.Instance.Player.StopBurst();
     }
 
     public void RefreshNavMesh()
