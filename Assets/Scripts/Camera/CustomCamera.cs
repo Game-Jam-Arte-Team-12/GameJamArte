@@ -28,7 +28,7 @@ public class CustomCamera : MonoBehaviour
 
     [SerializeField]
     private float _smoothFactorPlayer = 2f;
-    private float _smoothFactorTransition = 3f;
+    private float _smoothFactorTransition = .25f;
     //private bool _isFollowing = false;
 
     // Shake
@@ -81,13 +81,13 @@ public class CustomCamera : MonoBehaviour
             if (_target == null) yield return null;
 
             //if (_isShaking) CheckShakeValues();
-            
+
             //calculatedPos = _target.position + new Vector3(_offsetX + _shakeX, _offsetY + _shakeY, _offsetZ);
             calculatedPos = _target.position + new Vector3(_offsetX, _offsetY, _offsetZ);
             finalPos = new Vector3(calculatedPos.x, calculatedPos.y, calculatedPos.z);
             finalRot = Quaternion.Euler(_offsetRotX, _offsetRotY, _offsetRotZ);
 
-            transform.position = Vector3.Lerp(transform.position, finalPos, Time.fixedDeltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, finalPos, speed);
             //transform.rotation = Quaternion.Slerp(transform.rotation, finalRot, Time.fixedDeltaTime * speed);
 
             //if (!_isFollowing && Vector3.Distance(transform.position, finalPos) < 1f && Quaternion.Angle(transform.rotation, Quaternion.Euler(_offsetRotX, _offsetRotY, _offsetRotZ)) < 1f)

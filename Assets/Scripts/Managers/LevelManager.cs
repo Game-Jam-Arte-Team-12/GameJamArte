@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LevelManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject _levelDesignPrefab;
     private GameObject _levelDesign;
-    
+
     private List<Room> _rooms;
 
     //private int _roomIndex = 0;
@@ -32,12 +33,20 @@ public class LevelManager : MonoBehaviour
         _rooms = new List<Room>();
 
         _levelDesign = Instantiate(_levelDesignPrefab, Vector3.zero, Quaternion.identity);
-
+        _levelDesign.transform.position += new Vector3(0, -10, 0);
+        _levelDesign.transform.DOMoveY(0, 5f).OnComplete(() =>
+        {
+            foreach (Room room in _levelDesign.GetComponentsInChildren<Room>())
+            {
+                room.RefreshNavMesh();
+            }
+        });
         foreach (Room room in _levelDesign.GetComponentsInChildren<Room>())
         {
             _rooms.Add(room);
         }
         AccessNewRoom();
+
     }
 
     public void NextLevel()

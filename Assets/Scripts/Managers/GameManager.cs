@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     private Texture2D _normalCursor;
     [SerializeField]
     private Texture2D _interactCursor;
-
     [HideInInspector]
     public GameObject FollowingFalling;
 
@@ -49,18 +48,19 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.MainMenu);
         ChangeCursor(CursorTypes.Normal);
-        LevelManager.Instance.Init();
+        // LevelManager.Instance.Init();
     }
 
     public void NextLevel()
     {
         LevelManager.Instance.NextLevel();
-        if(FollowingFalling != null) Destroy(FollowingFalling);
+        if (FollowingFalling != null) Destroy(FollowingFalling);
     }
 
     public void Play()
     {
         ChangeGameState(GameState.Game);
+        LevelManager.Instance.Init();
     }
 
     public void Pause()
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     public void ChangeCursor(CursorTypes type)
     {
         Texture2D newTexture = _normalCursor;
-        switch(type)
+        switch (type)
         {
             case CursorTypes.Normal:
                 newTexture = _normalCursor;
