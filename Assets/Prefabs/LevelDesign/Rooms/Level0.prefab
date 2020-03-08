@@ -1929,10 +1929,20 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
       value: TEXT Object (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080299957422361037, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: waitTimeForAutoFadeOut
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6aa65eea4a144952abbfb82b706a0b1, type: 3}
@@ -3321,6 +3331,11 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 8339192012077292893}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
@@ -4556,6 +4571,11 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 9058222212697768484}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
@@ -4727,6 +4747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "What happened ?\nand\u2026 where am I ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
       objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
@@ -5771,6 +5796,11 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 7503526030099514766}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name

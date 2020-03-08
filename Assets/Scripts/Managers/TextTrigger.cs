@@ -35,7 +35,8 @@ public class TextTrigger : MonoBehaviour
             _hasBeenTriggered = true;
             if (ObjectToDisappear != null)
             {
-                yield return StartCoroutine(ObjectToDisappear.GetComponent<AppearDisappearTextManager>().RollOut(DelayToDisappear));
+                // ON A DESACTIVE LA DISPARITION
+                //yield return StartCoroutine(ObjectToDisappear.GetComponent<AppearDisappearTextManager>().RollOut(DelayToDisappear));
             }
             if (ObjectToDisplayOn != null)
             {

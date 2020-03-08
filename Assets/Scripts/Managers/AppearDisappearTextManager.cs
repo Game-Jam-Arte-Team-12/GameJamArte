@@ -18,14 +18,16 @@ public class AppearDisappearTextManager : MonoBehaviour
 
     private Tween _myTweenText;
 
+    public float waitTimeForAutoFadeOut = 2f;
 
-    IEnumerator Start()
+
+    void Start()
     {
         _m_textMeshPro = gameObject.GetComponent<TextMeshPro>() ?? gameObject.AddComponent<TextMeshPro>();
         _m_textMeshPro.maxVisibleCharacters = 0;
         _m_textMeshPro.SetText("");
         //yield return new WaitForSeconds(0.05f);
-        yield return StartCoroutine(RollIn());
+        //yield return StartCoroutine(RollIn());
     }
 
     public IEnumerator RollIn(float waitTime = 0)
@@ -54,6 +56,7 @@ public class AppearDisappearTextManager : MonoBehaviour
 
             yield return new WaitForSeconds(_rollInSpeed);
         }
+        yield return StartCoroutine(RollOut(waitTimeForAutoFadeOut));
     }
 
     private void FadeInBlock()
@@ -83,13 +86,16 @@ public class AppearDisappearTextManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         //yield return new WaitForSeconds(0.05f); // WAIT FOR THE TEXT TO RENDER
 
+
         int totalVisibleCharacters = _m_textMeshPro.textInfo.characterCount;
         int counter = totalVisibleCharacters;
         counter = visibleCount;
         _displayDone = true;
+        Debug.Log("ROLLLOOOUUT");
 
         while (_disappearDone == false)
         {
+
             int visibleCount = counter % (totalVisibleCharacters + 1);
 
             _m_textMeshPro.maxVisibleCharacters = visibleCount; // How many chars should
@@ -98,6 +104,7 @@ public class AppearDisappearTextManager : MonoBehaviour
             {
                 //yield return new WaitForSeconds(1.0f);
                 _disappearDone = true;
+
             }
 
             counter -= 1;

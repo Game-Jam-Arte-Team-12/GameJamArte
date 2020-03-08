@@ -950,6 +950,11 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 4952275115963559686}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
@@ -1219,6 +1224,11 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 2595279546592357693}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
@@ -1761,6 +1771,11 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 1409098384499960991}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
@@ -1955,10 +1970,20 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2080299957422361030, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 2080299957422361031, guid: d6aa65eea4a144952abbfb82b706a0b1,
         type: 3}
       propertyPath: m_Name
       value: TEXT Object (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080299957422361037, guid: d6aa65eea4a144952abbfb82b706a0b1,
+        type: 3}
+      propertyPath: waitTimeForAutoFadeOut
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6aa65eea4a144952abbfb82b706a0b1, type: 3}
