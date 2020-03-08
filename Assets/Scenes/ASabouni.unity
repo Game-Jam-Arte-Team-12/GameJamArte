@@ -784,9 +784,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFixed: 0
-  _offsetX: 7.48
-  _offsetY: 6.86
-  _offsetZ: -6.76
+  _offsetX: 8.65
+  _offsetY: 6.75
+  _offsetZ: -4.46
   _offsetRotX: 0
   _offsetRotY: 0
   _offsetRotZ: 0

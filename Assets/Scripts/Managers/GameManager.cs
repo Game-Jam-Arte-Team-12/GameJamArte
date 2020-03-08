@@ -87,16 +87,16 @@ public class GameManager : MonoBehaviour
     // Change cursor
     public void ChangeCursor(CursorTypes type)
     {
-        Texture2D newTexture = _normalCursor;
-        switch (type)
-        {
-            case CursorTypes.Normal:
-                newTexture = _normalCursor;
-                break;
-            case CursorTypes.Interact:
-                newTexture = _interactCursor;
-                break;
-        }
-        Cursor.SetCursor(newTexture, new Vector2(0, 0), CursorMode.Auto);
+        //Texture2D newTexture = _normalCursor;
+        //switch (type)
+        //{
+        //    case CursorTypes.Normal:
+        //        newTexture = _normalCursor;
+        //        break;
+        //    case CursorTypes.Interact:
+        //        newTexture = _interactCursor;
+        //        break;
+        //}
+        //Cursor.SetCursor(newTexture, new Vector2(0, 0), CursorMode.Auto);
     }
 }
