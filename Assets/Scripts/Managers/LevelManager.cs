@@ -27,11 +27,6 @@ public class LevelManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-
-    }
-
     public void Init()
     {
         _rooms = new List<Room>();
