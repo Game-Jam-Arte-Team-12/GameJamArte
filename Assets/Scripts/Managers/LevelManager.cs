@@ -55,7 +55,6 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        m_currentRoomIndex++;
 
 
         _rooms.Remove(ActualRoom);
@@ -65,8 +64,10 @@ public class LevelManager : MonoBehaviour
 
     private void AccessNewRoom()
     {
-        print("access");
-        SoundManagerTool.BlendSound(m_currentRoomIndex - 1, m_currentRoomIndex, 1f);
+        print(m_currentRoomIndex);
+
+		m_currentRoomIndex++;
+		SoundManagerTool.BlendSound(m_currentRoomIndex - 1, m_currentRoomIndex, 1f);
         ActualRoom = _rooms[0];
     }
 }
