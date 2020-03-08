@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.MainMenu);
         ChangeCursor(CursorTypes.Normal);
+        // LevelManager.Instance.Init();
     }
 
     public void NextLevel()
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         ChangeGameState(GameState.Game);
+        LevelManager.Instance.Init();
     }
 
     public void Pause()

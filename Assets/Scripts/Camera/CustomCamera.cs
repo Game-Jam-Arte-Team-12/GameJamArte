@@ -43,12 +43,8 @@ public class CustomCamera : MonoBehaviour
 
     private void Start()
     {
-        FollowPlayer();
-    }
-
-    public void SetPositionToPlayer()
-    {
         _target = GameManager.Instance.Player.transform;
+        FollowPlayer();
     }
 
     private void StartFollowingPlayer()
@@ -91,7 +87,7 @@ public class CustomCamera : MonoBehaviour
             finalPos = new Vector3(calculatedPos.x, calculatedPos.y, calculatedPos.z);
             finalRot = Quaternion.Euler(_offsetRotX, _offsetRotY, _offsetRotZ);
 
-            transform.position = Vector3.Lerp(transform.position, finalPos, Time.fixedDeltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, finalPos, speed);
             //transform.rotation = Quaternion.Slerp(transform.rotation, finalRot, Time.fixedDeltaTime * speed);
 
             //if (!_isFollowing && Vector3.Distance(transform.position, finalPos) < 1f && Quaternion.Angle(transform.rotation, Quaternion.Euler(_offsetRotX, _offsetRotY, _offsetRotZ)) < 1f)

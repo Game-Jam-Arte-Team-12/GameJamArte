@@ -11,7 +11,7 @@ public class TitleCardManager : MonoBehaviour
     [SerializeField]
     private GameObject _intercalary;
     [SerializeField]
-    public Camera _cam;
+    public CustomCamera _cam;
 
     private void Awake()
     {
@@ -31,9 +31,8 @@ public class TitleCardManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("corggucoucou");
         _titleCard.SetActive(false);
-        _cam.SetPositionToPlayer();
+        GameManager.Instance.Play();
         // TODO: slowly move camera to character
         // TODO: hide everything
         // TODO: Boom sfx
