@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3073485428791951125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToDisplayOn: {fileID: 0}
   DelayToAppear: 0
-  TextToDisplay: "J'ai peur... je ne comprends pas o\xF9 je suis..."
+  TextToDisplay: "It\u2019s like the sky just fell on my head.\nBut I can\u2019t
+    feel anything anymore."
   ObjectToDisappear: {fileID: 0}
   DelayToDisappear: 0
 --- !u!65 &3073485428791951126

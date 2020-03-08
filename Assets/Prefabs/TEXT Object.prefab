@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2080299957422361026}
   - component: {fileID: 2080299957422361039}
+  - component: {fileID: 2768647760687612305}
   - component: {fileID: 2080299957422361037}
   - component: {fileID: 2080299957422361025}
   - component: {fileID: 2080299957422361027}
   - component: {fileID: 2080299957422361024}
   - component: {fileID: 2080299957422361030}
+  - component: {fileID: 2904836112200208159}
   m_Layer: 0
   m_Name: TEXT Object
   m_TagString: Untagged
@@ -29,17 +31,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080299957422361031}
-  m_LocalRotation: {x: 0, y: -0.35347486, z: 0, w: 0.93544406}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 21.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -41.4, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 5}
+  m_SizeDelta: {x: 40, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2080299957422361039
 MonoBehaviour:
@@ -56,6 +58,21 @@ MonoBehaviour:
   FloatXOffSet: 0
   FloatYOffSet: 0.015
   FloatLoopDuration: 0.03
+--- !u!114 &2768647760687612305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080299957422361031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba98bef50ba0f40c88e08ea5a8601efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloatXOffSet: 0
+  FloatYOffSet: 2
+  FloatLoopDuration: 2
 --- !u!114 &2080299957422361037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "J'ai peur...\nje ne comprends pas o\xF9 je suis..."
+  m_text: "What happened ?\nand\u2026 where am I?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f80347f961a924be8a0c132ab718fc60, type: 2}
   m_sharedMaterial: {fileID: -7515318457721112289, guid: f80347f961a924be8a0c132ab718fc60,
@@ -170,8 +187,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -211,12 +228,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -2.1531157}
   m_textInfo:
     textComponent: {fileID: 2080299957422361030}
-    characterCount: 46
+    characterCount: 32
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 9
+    spaceCount: 6
+    wordCount: 6
     linkCount: 0
-    lineCount: 3
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -234,3 +251,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &2904836112200208159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080299957422361031}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba98bef50ba0f40c88e08ea5a8601efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloatXOffSet: 0
+  FloatYOffSet: 0.015
+  FloatLoopDuration: 0.03

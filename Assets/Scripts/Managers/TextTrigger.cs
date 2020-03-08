@@ -32,17 +32,18 @@ public class TextTrigger : MonoBehaviour
         //ObjectToDisplayOn.GetComponent<RollingTextAppear>().RollBack():
         if(collision.tag == "Player" && _hasBeenTriggered == false)
         {
+            if (ObjectToDisappear != null)
+            {
+                yield return StartCoroutine(ObjectToDisappear.GetComponent<AppearDisappearTextManager>().RollOut(DelayToDisappear));
+            }
             if (ObjectToDisplayOn != null)
             {
                 ObjectToDisplayOn.maxVisibleCharacters = 0;
                 ObjectToDisplayOn.SetText(TextToDisplay);
                 yield return StartCoroutine(ObjectToDisplayOn.GetComponent<AppearDisappearTextManager>().RollIn(DelayToAppear));
             }
-            if (ObjectToDisappear!=null)
-            {
-                yield return StartCoroutine(ObjectToDisappear.GetComponent<AppearDisappearTextManager>().RollOut(DelayToDisappear));
-            }
             _hasBeenTriggered = true;
+            Destroy(this.gameObject);
         }
         //yield return StartCoroutine(ObjectToDisplayOn.GetComponent<RollingTextAppear>().RollBack());
     }

@@ -63,7 +63,7 @@ public class AppearDisappearTextManager : MonoBehaviour
             //transform.position = Vector3.Lerp();
         });
 
-        _myTweenText = DOVirtual.Float(-0.1f, 0, 0.1f, (float value) => {
+        _myTweenText = DOVirtual.Float(-0.1f, 0, 2f, (float value) => {
             // ObjectToDisplayOn
             //_m_textMeshPro.alpha = value;
             _m_textMeshPro.fontSharedMaterial.SetFloat("_FaceDilate", value);
