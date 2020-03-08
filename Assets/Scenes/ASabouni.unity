@@ -201,7 +201,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -602,7 +602,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -726,7 +726,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -993,3 +993,4 @@ MonoBehaviour:
   Player: {fileID: 505619260}
   _normalCursor: {fileID: 2800000, guid: f35d1a0ce1cdc19419223ff91cc1a091, type: 3}
   _interactCursor: {fileID: 2800000, guid: 4b61a379add7bf14485eef9a87d23775, type: 3}
+  FollowingFalling: {fileID: 0}

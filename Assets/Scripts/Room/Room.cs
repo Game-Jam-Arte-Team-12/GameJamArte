@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
     private RoomTriggerCamera _triggerCam;
     private NavMeshSurface _surface;
 
-    private void Start()
+    protected virtual void Start()
     {
         _triggerCam = GetComponentInChildren<RoomTriggerCamera>();
         _surface = GetComponentInChildren<NavMeshSurface>();
