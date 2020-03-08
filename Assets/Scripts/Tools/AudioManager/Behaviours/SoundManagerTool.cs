@@ -200,11 +200,7 @@ namespace Plugins.SoundManagerTool
 			string fadeOutName = "MUS_" + indexFadeOut;
 			string fadeInName = "MUS_" + indexFadeIn;
 
-			Debug.Log(fadeOutName + " : " + fadeInName);
-
 			SoundData fadeInMusic = GetSoundData(fadeInName);
-
-			//Debug.Log(fadeInMusic.ID);
 
 			StopSound(fadeOutName, blendDuration);
 			PlaySound(fadeInName, blendDuration);
