@@ -193,6 +193,10 @@ namespace Plugins.SoundManagerTool
 
 		public static void BlendSound(int indexFadeOut, int indexFadeIn, float blendDuration)
 		{
+
+			if(indexFadeOut < -1 || indexFadeIn < -1)
+				return;
+
 			string fadeOutName = "MUS_" + indexFadeOut;
 			string fadeInName = "MUS_" + indexFadeIn;
 
@@ -200,7 +204,7 @@ namespace Plugins.SoundManagerTool
 
 			SoundData fadeInMusic = GetSoundData(fadeInName);
 
-			Debug.Log(fadeInMusic.ID);
+			//Debug.Log(fadeInMusic.ID);
 
 			StopSound(fadeOutName, blendDuration);
 			PlaySound(fadeInName, blendDuration);
