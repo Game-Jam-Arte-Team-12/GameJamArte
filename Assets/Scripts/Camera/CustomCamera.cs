@@ -28,7 +28,7 @@ public class CustomCamera : MonoBehaviour
 
     [SerializeField]
     private float _smoothFactorPlayer = 2f;
-    private float _smoothFactorTransition = 3f;
+    private float _smoothFactorTransition = .25f;
     //private bool _isFollowing = false;
 
     // Shake
@@ -43,8 +43,12 @@ public class CustomCamera : MonoBehaviour
 
     private void Start()
     {
-        _target = GameManager.Instance.Player.transform;
         FollowPlayer();
+    }
+
+    public void SetPositionToPlayer()
+    {
+        _target = GameManager.Instance.Player.transform;
     }
 
     private void StartFollowingPlayer()
@@ -81,7 +85,7 @@ public class CustomCamera : MonoBehaviour
             if (_target == null) yield return null;
 
             //if (_isShaking) CheckShakeValues();
-            
+
             //calculatedPos = _target.position + new Vector3(_offsetX + _shakeX, _offsetY + _shakeY, _offsetZ);
             calculatedPos = _target.position + new Vector3(_offsetX, _offsetY, _offsetZ);
             finalPos = new Vector3(calculatedPos.x, calculatedPos.y, calculatedPos.z);
