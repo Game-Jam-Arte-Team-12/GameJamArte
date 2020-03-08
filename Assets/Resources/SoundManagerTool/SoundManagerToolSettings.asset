@@ -16,3 +16,4 @@ MonoBehaviour:
   m_baseFadeOutDuration: 1
   m_soundDataLibraries:
   - {fileID: 11400000, guid: 23e2426e14274434082df56d802fde3a, type: 2}
+  - {fileID: 11400000, guid: a3e5f4ffff09e1a47a30f0b55ae85cfe, type: 2}
