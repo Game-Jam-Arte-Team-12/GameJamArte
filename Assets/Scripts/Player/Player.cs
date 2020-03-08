@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
         _interactables = new List<Interactable>();
         _bridges = new List<GameObject>();
         _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = false;
+
         _inputAction = new PlayerControl();
         _inputAction.Enable();
         _inputAction.PlayerControls.Move.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
@@ -56,8 +58,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ActiveAgent()
+    {
+        _agent.enabled = true;
+    }
+
     public void MoveTo(Vector3 newPos)
     {
+        if (!_agent.isOnNavMesh) return;
         _agent.Move(newPos * Time.deltaTime * _speed);
     }
 

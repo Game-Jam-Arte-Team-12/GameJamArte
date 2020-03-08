@@ -49,6 +49,7 @@ public class FallingRock : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.Instance.Player.Die();
+            print("die pls");
         }
     }
 }

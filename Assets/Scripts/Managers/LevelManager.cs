@@ -34,12 +34,13 @@ public class LevelManager : MonoBehaviour
 
         _levelDesign = Instantiate(_levelDesignPrefab, Vector3.zero, Quaternion.identity);
         _levelDesign.transform.position += new Vector3(0, -10, 0);
-        _levelDesign.transform.DOMoveY(0, 5f).OnComplete(() =>
+        _levelDesign.transform.DOMoveY(0, 2f).OnComplete(() =>
         {
             foreach (Room room in _levelDesign.GetComponentsInChildren<Room>())
             {
                 room.RefreshNavMesh();
             }
+            GameManager.Instance.Player.ActiveAgent();
         });
         foreach (Room room in _levelDesign.GetComponentsInChildren<Room>())
         {
