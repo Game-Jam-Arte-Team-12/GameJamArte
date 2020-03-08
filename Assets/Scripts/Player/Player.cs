@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private Vector2 _movementInput;
     private float _speed = 3f;
 
+    private Vector3 _startingPosition;
+
     [SerializeField]
     private List<Interactable> _interactables;
 
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour
         _inputAction.Enable();
         _inputAction.PlayerControls.Move.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
         _inputAction.PlayerControls.Interact.performed += ctx => Interact();
+
+        _startingPosition = transform.position;
     }
     
     void Update()
@@ -61,6 +65,11 @@ public class Player : MonoBehaviour
     public void RemoveInteractable(Interactable inter)
     {
         _interactables.Remove(inter);
+    }
+
+    public void Die()
+    {
+        transform.position = _startingPosition;
     }
     //private void OnEnable()
     //{
