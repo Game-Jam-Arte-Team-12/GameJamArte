@@ -56,10 +56,10 @@ public class AudioManager : MonoBehaviour
 	SoundManagerTool.Init(transform);
 	}
 
-	private void OnDestroy()
-	{
-		Destroy(this);
-	}
+	//private void OnDestroy()
+	//{
+	//	Destroy(this);
+	//}
 
 
 	[ContextMenu("PlayTest")]
