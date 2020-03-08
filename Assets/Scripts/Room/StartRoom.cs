@@ -8,6 +8,8 @@ public class StartRoom : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            print("tamer");
+
             LevelManager.Instance.ActualRoom.StartRoom();
         }
     }

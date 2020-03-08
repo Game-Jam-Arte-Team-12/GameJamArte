@@ -12,6 +12,7 @@ public class Room2 : Room
     {
         base.Start();
     }
+
     public override void StartRoom()
     {
         base.StartRoom();
