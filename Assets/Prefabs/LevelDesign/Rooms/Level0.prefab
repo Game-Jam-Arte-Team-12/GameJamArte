@@ -323,7 +323,7 @@ GameObject:
   m_Name: GlycineRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4293671704040447764
@@ -396,6 +396,20 @@ Transform:
   m_Father: {fileID: 9016112620921482131}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &7837239074151117411
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479806682290367813}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1403646610221302748, guid: 966e4e8b9645b6c429a4b66be81c180f, type: 3}
 --- !u!1 &4798933225613138447
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,20 +658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallsFrontParent: {fileID: 0}
---- !u!64 &7837239074151117411
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479806682290367813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1403646610221302748, guid: 966e4e8b9645b6c429a4b66be81c180f, type: 3}
 --- !u!1 &5664742729415056226
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +911,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProtectionTree_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6bce1fd1569e8824395f25732a6f8b6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6bce1fd1569e8824395f25732a6f8b6f,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bce1fd1569e8824395f25732a6f8b6f, type: 3}
 --- !u!4 &5006512735507562150 stripped
@@ -1000,6 +1010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineBush (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1bbf1dd441469624c84a16973f21dd37,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf1dd441469624c84a16973f21dd37, type: 3}
@@ -1181,6 +1196,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProtectionTree_01
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6bce1fd1569e8824395f25732a6f8b6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6bce1fd1569e8824395f25732a6f8b6f,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bce1fd1569e8824395f25732a6f8b6f, type: 3}
 --- !u!4 &4842035742389028296 stripped
@@ -1270,6 +1295,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ProtectionTree_02
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0908e4ab486ab1e4cade6b4a9823035a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0908e4ab486ab1e4cade6b4a9823035a,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0908e4ab486ab1e4cade6b4a9823035a, type: 3}
@@ -1366,6 +1401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (7)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &5503011322682759925 stripped
@@ -1461,6 +1501,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &6217737368545625135 stripped
@@ -1551,6 +1596,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColumnMesh03
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f577b6dfa321fbf4c8653f8232bbaef4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f577b6dfa321fbf4c8653f8232bbaef4,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f577b6dfa321fbf4c8653f8232bbaef4, type: 3}
 --- !u!4 &5926299690929680909 stripped
@@ -1640,6 +1695,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ColumnMesh02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4d89c7a8b87f49440b34f69d4d2055b4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4d89c7a8b87f49440b34f69d4d2055b4,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d89c7a8b87f49440b34f69d4d2055b4, type: 3}
@@ -2006,6 +2071,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (10)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &7900768355698416800 stripped
@@ -2101,6 +2176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (6)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &7802973880341457658 stripped
@@ -2195,6 +2275,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineFlower (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
@@ -2526,6 +2616,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColumnMesh01
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 151e30eab2a43b54c8dc1b2daaf0b4a3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 151e30eab2a43b54c8dc1b2daaf0b4a3,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151e30eab2a43b54c8dc1b2daaf0b4a3, type: 3}
 --- !u!4 &8268800579511348315 stripped
@@ -2621,6 +2721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (5)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &8919352135626266814 stripped
@@ -2710,6 +2815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 809cdfc615817fd44a63be10fff9ea68,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809cdfc615817fd44a63be10fff9ea68, type: 3}
@@ -2895,6 +3005,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
@@ -3084,6 +3199,11 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 966e4e8b9645b6c429a4b66be81c180f,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 966e4e8b9645b6c429a4b66be81c180f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3447,6 +3567,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cfdc234214d759e41b34c476a9135d79,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cfdc234214d759e41b34c476a9135d79,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfdc234214d759e41b34c476a9135d79, type: 3}
 --- !u!4 &2285558162834052638 stripped
@@ -3542,6 +3672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &1909869590813254175 stripped
@@ -3631,6 +3766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineBush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1bbf1dd441469624c84a16973f21dd37,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf1dd441469624c84a16973f21dd37, type: 3}
@@ -3907,6 +4047,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (11)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &3371393006418415005 stripped
@@ -4182,6 +4332,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineBush
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1bbf1dd441469624c84a16973f21dd37,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf1dd441469624c84a16973f21dd37, type: 3}
 --- !u!4 &3995365197005053908 stripped
@@ -4276,6 +4431,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineFlower (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
@@ -4372,6 +4537,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlycineFlower (3)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
 --- !u!4 &4460274640553248026 stripped
@@ -4466,6 +4636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GlycineFlower (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d0be43a204d05b24182366bd54c18eb1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be43a204d05b24182366bd54c18eb1, type: 3}
